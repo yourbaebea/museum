@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import classes from "./style/layout.module.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Search from "./components/Search";
+import Art from "./components/Art";
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+
+      <div className={classes.App}>
+        <div className={classes.element1} style={{width: "10vw" }}>
+          <Art/>
+        </div>
+
+        <div className={classes.element2} style={{width: "90vw" }}>
+          <Search/>
+        </div>
+
+        </div>
+  
+   
+      
     </div>
   );
 }
