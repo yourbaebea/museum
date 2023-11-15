@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/museum/static/css/main.0fbddb4b.css",
-    "main.js": "/museum/static/js/main.d275721c.js",
+    "main.css": "/museum/static/css/main.a73a9081.css",
+    "main.js": "/museum/static/js/main.e5303839.js",
     "static/js/787.cb161455.chunk.js": "/museum/static/js/787.cb161455.chunk.js",
     "static/media/vangogh.jpg": "/museum/static/media/vangogh.cfb8aabe5f35e3fda078.jpg",
     "static/media/goldfish.jpg": "/museum/static/media/goldfish.085c8df4a45ebfbb2d82.jpg",
@@ -13,12 +13,12 @@
     "static/media/Monolisa Font.ttf": "/museum/static/media/Monolisa Font.37987dbd6f4c83f7123d.ttf",
     "static/media/JosefinSans-Bold.ttf": "/museum/static/media/JosefinSans-Bold.0ec6d05a9917d9c58519.ttf",
     "index.html": "/museum/index.html",
-    "main.0fbddb4b.css.map": "/museum/static/css/main.0fbddb4b.css.map",
-    "main.d275721c.js.map": "/museum/static/js/main.d275721c.js.map",
+    "main.a73a9081.css.map": "/museum/static/css/main.a73a9081.css.map",
+    "main.e5303839.js.map": "/museum/static/js/main.e5303839.js.map",
     "787.cb161455.chunk.js.map": "/museum/static/js/787.cb161455.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0fbddb4b.css",
-    "static/js/main.d275721c.js"
+    "static/css/main.a73a9081.css",
+    "static/js/main.e5303839.js"
   ]
 }
