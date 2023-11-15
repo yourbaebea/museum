@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b5b10b0a.css",
+    "main.js": "/static/js/main.da7ab8e9.js",
+    "static/js/787.cb161455.chunk.js": "/static/js/787.cb161455.chunk.js",
+    "static/media/JosefinSans-Bold.ttf": "/static/media/JosefinSans-Bold.0ec6d05a9917d9c58519.ttf",
+    "index.html": "/index.html",
+    "main.b5b10b0a.css.map": "/static/css/main.b5b10b0a.css.map",
+    "main.da7ab8e9.js.map": "/static/js/main.da7ab8e9.js.map",
+    "787.cb161455.chunk.js.map": "/static/js/787.cb161455.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b5b10b0a.css",
+    "static/js/main.da7ab8e9.js"
+  ]
+}
