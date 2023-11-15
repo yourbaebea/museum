@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/museum/static/css/main.8e300086.css",
-    "main.js": "/museum/static/js/main.3c7ec41a.js",
+    "main.css": "/museum/static/css/main.c79fd613.css",
+    "main.js": "/museum/static/js/main.54fda097.js",
     "static/js/787.cb161455.chunk.js": "/museum/static/js/787.cb161455.chunk.js",
     "static/media/vangogh.jpg": "/museum/static/media/vangogh.cfb8aabe5f35e3fda078.jpg",
     "static/media/goldfish.jpg": "/museum/static/media/goldfish.085c8df4a45ebfbb2d82.jpg",
@@ -12,12 +12,12 @@
     "static/media/clock.jpg": "/museum/static/media/clock.de22598b5ce53bbb3e97.jpg",
     "static/media/JosefinSans-Bold.ttf": "/museum/static/media/JosefinSans-Bold.0ec6d05a9917d9c58519.ttf",
     "index.html": "/museum/index.html",
-    "main.8e300086.css.map": "/museum/static/css/main.8e300086.css.map",
-    "main.3c7ec41a.js.map": "/museum/static/js/main.3c7ec41a.js.map",
+    "main.c79fd613.css.map": "/museum/static/css/main.c79fd613.css.map",
+    "main.54fda097.js.map": "/museum/static/js/main.54fda097.js.map",
     "787.cb161455.chunk.js.map": "/museum/static/js/787.cb161455.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e300086.css",
-    "static/js/main.3c7ec41a.js"
+    "static/css/main.c79fd613.css",
+    "static/js/main.54fda097.js"
   ]
 }
