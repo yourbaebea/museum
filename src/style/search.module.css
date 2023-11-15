@@ -83,6 +83,7 @@ align-self: flex-end;
     flex-direction: row;
     width: 94%; /* Make the bottom line span the full width of the container minus the margin */
     margin-left: 5%;
+    text-align: end;
 }
 
 .resultImage{
