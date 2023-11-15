@@ -21,7 +21,7 @@
 
 .footer {
   width: 100%;
-  padding-right: 5%;
+  padding-right: 6%;
   padding-bottom: 3%;
   box-sizing: border-box;
   display: flex;
@@ -29,9 +29,15 @@
   color: var(--secondary-text-color);
   font-size: var(--font-size);
   letter-spacing: 0.01em;
+  font-weight: bold;
 }
 
 .footerTM{
   width: fit-content;
   height: fit-content;
+}
+
+.met{
+  height: var(--font-size);
+  width: var(--font-size);
 }

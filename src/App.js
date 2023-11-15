@@ -16,7 +16,8 @@ function App() {
         </div>
 
         <div className={classes.element2} style={{width: "calc(100vw - 200px)" }}>
-          {/*<p>This is an Search engine for the Met Museum</p>*/}
+          
+          
           <Search/>
 
           <div className={classes.footer}>

@@ -13,6 +13,7 @@ function Search() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [nothing, setNothing] = useState(false);
+  const [picture, setPicture] = useState(true);
   
   async function fetchInfo (){
     setLoading(true);
@@ -47,8 +48,10 @@ function Search() {
         title,
       } = specificResponse.data;
 
-      return {
-        artistDisplayName,
+      const finalArtistDisplayName = artistDisplayName !== "" ? artistDisplayName : "Unknown";
+
+    return {
+        artistDisplayName: finalArtistDisplayName,
         artistGender,
         department,
         medium,
@@ -76,11 +79,14 @@ function Search() {
 
   const reset = () => {
     setSortedData(data.slice());
+    setPicture(true);
   };
 
-  const sortByType = () => {
-    const paintingsOnly = sortedData.filter((d) => d.objectName.toLowerCase().includes("painting"));
-    setSortedData(paintingsOnly);
+  //TODO change this to only with picture
+  const sortByPicture = () => {
+    const imageOnly = sortedData.filter((d) => d.primaryImage !== "");
+    setSortedData(imageOnly);
+    setPicture(false);
   };
 
   const sortByArtistName = () => {
@@ -119,41 +125,67 @@ function Search() {
     fetchInfo();
   };
 
+  const handleSearchForm = (e) => {
+    e.preventDefault(); // Prevents the default form submission behavior
+    handleSearch();
+  };
+
   return (
     <div className={classes.search}>
-        <input type="text" placeholder="Search..." id="search" value={search} onChange={handleSearchChange} />
-        <button onClick={handleSearch}>Search</button>
-        <button onClick={sortByArtistName}>Sort by Artist Name</button>
-        <button onClick={sortByDate}>Sort by Date</button>
-        <button onClick={reset}>Reset</button>
-        <button onClick={sortByType}>Only show Painting</button> {/*objectName */}
+
+      <div className={classes.buttonContainer} > 
+      <form className={classes.elementInput}  onSubmit={handleSearchForm}>
+        <input className={classes.elementInput} type="text" placeholder="Search..." id="search" value={search} onChange={handleSearchChange} />
+      </form> 
+        <div className={classes.verticalLine}  />
+        <div className={classes.element} onClick={handleSearch} style={{width: "50%"}}>Search</div>
+        <div className={classes.verticalLine}  />
+        {picture ? <div className={classes.element} onClick={sortByPicture}>Only Show With Picture</div> : <div className={classes.element} onClick={reset}>Show All</div>}
+        <div className={classes.verticalLine}  />
+        <div className={classes.element} onClick={sortByArtistName}>Sort by Artist Name</div>
+        <div className={classes.verticalLine}  />
+        <div className={classes.element} onClick={sortByDate}>Sort by Date</div>
         
-        {nothing && <div>No results</div>}
+    
+        
+        </div>
+        <div className={classes.bottomLine} />
+        
+        <div className={classes.resultContainer} >        
+          {nothing && <div className={classes.other}>No results</div>}
 
-        {loading ? <div>Waiting for response from the Met Museum API...</div>: <>{sortedData.map((d, index) => {
-          return (
-            <div
-              key={index}
-              style={{
-                backgroundColor: "#CD8FFD",
-                margin: "10px"
-              }}
-            >
+          {loading ? <div className={classes.other}>Waiting for response from the Met Museum API...</div>: <>{sortedData.map((d, index) => {
+            return (
+              <div>
+              <div
+                key={index}
+      
+                className={classes.result}
+              >
 
-            {d.artistDisplayName !== "" ? <div>Artist: {d.artistDisplayName} </div>: <div>Artist: Unkown</div>} 
-            {d.artistGender !== "" ? <div>Gender: {d.artistGender} </div>: null} 
-            {d.department !== "" ? <div>Department: {d.artistDisplayName} </div>: null} 
-            {d.medium !== "" ? <div>Medium: {d.medium} </div>: null} 
-            {d.objectDate !== "" ? <div>Date: {d.objectDate} </div>: null} 
-            {d.objectName !== "" ? <div>Art Format: {d.objectName} </div>: null} 
-            {d.primaryImage !== "" ? <img style={{width: "50px", height: "50px"}} src={d.primaryImage} alt="Artwork" />: <div>No Artwork Available</div> } 
-            {d.title !== "" ? <div>Title: {d.title} </div>: null} 
-            
+              <div className={classes.resultValues}>
 
+               
+              {d.primaryImage !== "" ? <img className={classes.resultImage} src={d.primaryImage} alt="Artwork" />: <div>No Artwork Available</div> } 
+              
+              
+              
+              <div className={classes.resultText}>
+                
+              {d.artistDisplayName !== "" ? <div>Artist: {d.artistDisplayName} </div>: <div>Artist: Unknown</div>} 
+              {d.medium !== "" ? <div>Medium: {d.medium} </div>: <></>} 
+              {d.objectDate !== "" ? <div>Date: {d.objectDate} </div>: <></>} 
+              {d.objectName !== "" ? <div>Art Format: {d.objectName} </div>: <></>} 
+              {d.title !== "" ? <div>Title: {d.title} </div>: <></>} 
+              </div>
+              </div>
 
-            </div>
-          );
-        })}</>}
+              </div>
+              <div className={classes.bottomLine} />
+              </div>
+            );
+          })}</>}
+        </div>
     </div>
   );
 }

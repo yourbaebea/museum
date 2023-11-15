@@ -3,9 +3,109 @@
     margin-bottom: 3%;
     height: 100%;
     width: 90%;
-    background-color: aqua;
     min-height: 76vh;
     align-items: center;
 }
 
+.buttonContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 15vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-large);
+  font-weight: bold;
+  pointer-events: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.verticalLine {
+    border-left: var(--line-thickness) solid black; /* Adjust the thickness and color as needed */
+    height: 100%; /* Make the vertical line stretch to the full height of the container */ /* Adjust the spacing between elements and vertical lines */
+}
+
+.bottomLine {
+    display: flex;
+border-top: var(--line-thickness) solid black; /* Adjust the thickness and color of the bottom line as needed */
+width: 94%; /* Make the bottom line span the full width of the container minus the margin */
+margin-left: 5%;
+margin-top: -4vh; /* Adjust the spacing between the elements and the bottom line */
+height: 10%;
+align-self: flex-end;
+}
+
+.element{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  
+}
+
+.elementInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-left:3rem;
+    height: 50%;
+    font-family: inherit; /* Use the same font as the default */
+    font-size: inherit; /* Use the same font size as the default */
+    border: none; /* Remove the border */
+    outline: none; /* Remove the default focus outline */
+    background-color: rgba(255, 255, 255, 0);
+    font-size: var(--font-size-large);
+    font-weight: bold;
+}
+
+.resultContainer{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.result{
+    margin-top: 20vh;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    height: 35vh;
+    font-size: var(--font-size);
+}
+
+.resultValues{
+    display: flex;
+    flex-direction: row;
+    width: 94%; /* Make the bottom line span the full width of the container minus the margin */
+    margin-left: 5%;
+}
+
+.resultImage{
+    max-height: 30vh;
+    max-width: 40vw;
+    border: none;
+}
+
+
+.resultText{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-end;
+    margin-left: 5vw;
+}
+
+.other{
+    width: 94%;
+    margin-left: 5%;
+    font-size: var(--font-size-large);
+    font-weight: bold;
+}
   
