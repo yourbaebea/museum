@@ -4,7 +4,6 @@
     height: 150vh;
     margin-top: -10vh;
     display: flex;
-    border: 2px solid white;
     overflow: hidden;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
@@ -31,4 +30,32 @@
     -webkit-background-clip: text;
     color: transparent;
     background-position: center center;
+}
+
+.clock{
+    background-image: url("../../public/rotation/clock.jpg");
+}
+  
+.goldfish{
+background-image: url("../../public/rotation/goldfish.jpg");
+}
+
+.kiss{
+    background-image: url("../../public/rotation/kiss.jpg");
+}
+
+.vangogh{
+    background-image: url("../../public/rotation/vangogh.jpg");
+}
+
+.pearlearing{
+    background-image: url("../../public/rotation/pearlearing.jpg");
+}
+
+.venus{
+    background-image: url("../../public/rotation/venus.jpg");
+}
+
+.wave{
+    background-image: url("../../public/rotation/wave.jpg");
 }

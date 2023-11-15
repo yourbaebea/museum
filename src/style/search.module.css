@@ -1,8 +1,11 @@
 .search{
     margin: 5%;
+    margin-bottom: 3%;
     height: 100%;
     width: 90%;
     background-color: aqua;
+    min-height: 76vh;
+    align-items: center;
 }
 
   

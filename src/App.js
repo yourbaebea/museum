@@ -11,15 +11,23 @@ function App() {
     <div >
 
       <div className={classes.App}>
-        <div className={classes.element1} style={{width: "10vw" }}>
+        <div className={classes.element1} style={{width: "200px" }}>
           <Art/>
         </div>
 
-        <div className={classes.element2} style={{width: "90vw" }}>
+        <div className={classes.element2} style={{width: "calc(100vw - 200px)" }}>
+          {/*<p>This is an Search engine for the Met Museum</p>*/}
           <Search/>
-        </div>
+
+          <div className={classes.footer}>
+
+            <div className={classes.footerTM}>Web Development 2023</div>
+
+          </div>
 
         </div>
+        
+      </div>
   
    
       

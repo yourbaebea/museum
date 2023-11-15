@@ -1,4 +1,4 @@
-import classes from "../style/page.module.css";
+import classes from "../style/search.module.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 

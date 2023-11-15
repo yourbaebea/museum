@@ -77,14 +77,13 @@ function Art() {
   return (
     <div className={classes.textContainer}>
       <div className={classes.textRow}>
-        <div name="art" className={classes.textItem} style={{ color: "red" }}>ART</div>
-        <div name="art" className={classes.textItem} style={{backgroundImage: 'url("/rotation/goldfish.jpg")'}}>ART</div>
-        <div name="art" className={classes.textItem} style={{backgroundImage: 'url("/rotation/kiss.jpg")'}}>SCULPTURE</div>
-        <div name="art" className={classes.textItem} style={{backgroundImage: 'url("/rotation/vangogh.jpg")'}}>PAITING</div>
-        <div name="art" className={classes.textItem} style={{backgroundImage: 'url("/rotation/pearlearing.jpg")'}}>COSTUMES</div>
-        <div name="art" className={classes.textItem} style={{backgroundImage: 'url("/rotation/clock2.jpg")'}}>PHOTOGRAPHY</div>
-        <div name="art" className={classes.textItem} style={{backgroundImage: 'url("/rotation/venus.jpg")'}}>ANTIQUES</div>
-        <div name="art" className={classes.textItem} style={{backgroundImage: 'url("/rotation/wave.jpg")'}}>CONTEMPORARY</div>
+        <div name="art" className={`${classes.textItem} ${classes.goldfish}`}>ART</div>
+        <div name="art" className={`${classes.textItem} ${classes.kiss}`}>SCULPTURE</div>
+        <div name="art" className={`${classes.textItem} ${classes.vangogh}`}>PAITING</div>
+        <div name="art" className={`${classes.textItem} ${classes.pearlearing}`}>COSTUMES</div>
+        <div name="art" className={`${classes.textItem} ${classes.clock}`}>PHOTOGRAPHY</div>
+        <div name="art" className={`${classes.textItem} ${classes.venus}`}>ANTIQUES</div>
+        <div name="art" className={`${classes.textItem} ${classes.wave}`}>CONTEMPORARY</div>
       </div>
     </div>
   );
