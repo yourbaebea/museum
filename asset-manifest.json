@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/museum/static/css/main.04004286.css",
+    "main.css": "/museum/static/css/main.dcd65b9a.css",
     "main.js": "/museum/static/js/main.7f7ad1df.js",
     "static/js/787.cb161455.chunk.js": "/museum/static/js/787.cb161455.chunk.js",
     "static/media/vangogh.jpg": "/museum/static/media/vangogh.cfb8aabe5f35e3fda078.jpg",
@@ -13,12 +13,12 @@
     "static/media/Monolisa Font.ttf": "/museum/static/media/Monolisa Font.37987dbd6f4c83f7123d.ttf",
     "static/media/JosefinSans-Bold.ttf": "/museum/static/media/JosefinSans-Bold.0ec6d05a9917d9c58519.ttf",
     "index.html": "/museum/index.html",
-    "main.04004286.css.map": "/museum/static/css/main.04004286.css.map",
+    "main.dcd65b9a.css.map": "/museum/static/css/main.dcd65b9a.css.map",
     "main.7f7ad1df.js.map": "/museum/static/js/main.7f7ad1df.js.map",
     "787.cb161455.chunk.js.map": "/museum/static/js/787.cb161455.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.04004286.css",
+    "static/css/main.dcd65b9a.css",
     "static/js/main.7f7ad1df.js"
   ]
 }
