@@ -52,14 +52,14 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 6vh;
+    height: fit-content;
     width: 80%; 
     border-radius: 15px;
     background-color: var(--menu-color);
   }
 
 .element:hover{
-    color: var(--menu-hover);
+    color: var(--menu-option);
 }
 
 .boxContainer {
@@ -99,7 +99,13 @@
     outline: none; /* Remove the default focus outline */
     background-color: rgba(255, 255, 255, 0);
     font-size: var(--font-size);
+    color: var(--menu-letter);
     font-weight: bold;
+}
+
+
+.elementInput::placeholder{
+    color: var(--menu-option);
 }
 
 .resultBox{

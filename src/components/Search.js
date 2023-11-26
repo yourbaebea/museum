@@ -161,7 +161,7 @@ function Search() {
 
         <form className={classes.elementSearch}  onSubmit={handleSearchForm}>
           <input className={classes.elementInput} type="text" placeholder="Search..." id="search" value={search} onChange={handleSearchChange} />
-          <div onClick={handleSearch} style={{padding: "15px"}}><CiSearch size={40}/></div>
+          <div onClick={handleSearch} style={{paddingRight: "15px", paddingTop: "5px", paddingBottom: "5px"}}><CiSearch size={40}/></div>
           
         </form> 
 

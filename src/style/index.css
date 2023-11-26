@@ -6,7 +6,7 @@
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
 
-  --background-color:  rgb(230, 226, 213);
+  --background-color:  #e6e2d5;
   --grey-2: #555555;
   --grey-1: #8f8f8f;
   --yellow-1: rgba(122, 107, 58, 0.333);
@@ -16,6 +16,8 @@
   --menu-color: var(--yellow-1);
   --menu-letter: var(--orange-1);
   --menu-hover: var(--orange-2);
+
+  --menu-option: #7e6f3d;
 
   --font-size: 15px;
 

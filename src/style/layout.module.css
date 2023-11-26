@@ -30,6 +30,7 @@
   color: var(--secondary-text-color);
   font-size: var(--font-size);
   font-style: italic;
+  font-weight: bold;
 }
 
 .footerTM{
