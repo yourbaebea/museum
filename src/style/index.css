@@ -9,15 +9,15 @@
   --background-color:  #e6e2d5;
   --grey-2: #555555;
   --grey-1: #8f8f8f;
-  --yellow-1: rgba(122, 107, 58, 0.333);
+  --yellow-1: rgb(191, 185, 168);
   --orange-1: 	#564b28;
   --orange-2: 	#292413;
 
   --menu-color: var(--yellow-1);
-  --menu-letter: var(--orange-1);
+  --font-color: var(--orange-2);
   --menu-hover: var(--orange-2);
 
-  --menu-option: #7e6f3d;
+  --menu-option: var(--orange-2);
 
   --font-size: 15px;
 
@@ -34,7 +34,7 @@ body {
   background-color: var(--background-color);
   width: calc(100vw - 1rem);
   cursor: pointer;
-  color: var(--menu-letter);
+  color: var(--font-color);
 }
 
 
