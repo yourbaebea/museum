@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/museum/static/css/main.7c43c3d1.css",
+    "main.css": "/museum/static/css/main.e82ae69a.css",
     "main.js": "/museum/static/js/main.f95bbb35.js",
     "static/js/787.cb161455.chunk.js": "/museum/static/js/787.cb161455.chunk.js",
     "static/media/vangogh.jpg": "/museum/static/media/vangogh.cfb8aabe5f35e3fda078.jpg",
@@ -15,12 +15,12 @@
     "static/media/Satoshi-Regular.otf": "/museum/static/media/Satoshi-Regular.811ccb0b5af1892a71df.otf",
     "static/media/Satoshi-Light.otf": "/museum/static/media/Satoshi-Light.66b6be60222486fa8673.otf",
     "index.html": "/museum/index.html",
-    "main.7c43c3d1.css.map": "/museum/static/css/main.7c43c3d1.css.map",
+    "main.e82ae69a.css.map": "/museum/static/css/main.e82ae69a.css.map",
     "main.f95bbb35.js.map": "/museum/static/js/main.f95bbb35.js.map",
     "787.cb161455.chunk.js.map": "/museum/static/js/787.cb161455.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c43c3d1.css",
+    "static/css/main.e82ae69a.css",
     "static/js/main.f95bbb35.js"
   ]
 }
