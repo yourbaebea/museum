@@ -32,8 +32,8 @@
     background-position: center center;
 }
 
-.clock{
-    background-image: url("../../public/rotation/clock.jpg");
+.picasso{
+    background-image: url("../../public/rotation/picasso.jpg");
 }
   
 .goldfish{
@@ -56,6 +56,6 @@ background-image: url("../../public/rotation/goldfish.jpg");
     background-image: url("../../public/rotation/venus.jpg");
 }
 
-.wave{
-    background-image: url("../../public/rotation/wave.jpg");
+.star{
+    background-image: url("../../public/rotation/star.jpg");
 }

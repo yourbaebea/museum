@@ -1,9 +1,10 @@
 .search{
-    margin: 5%;
-    margin-bottom: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 4vh;
     height: 100%;
     width: 90%;
-    min-height: 76vh;
+    min-height: 90vh;
     align-items: center;
 }
 
@@ -16,25 +17,25 @@
     align-items: center;
     justify-content: center;
     font-size: var(--font-size);
-  font-weight: bold;
-  pointer-events: auto;
-  text-decoration: none;
-  cursor: pointer;
+    font-weight: bold;
+    pointer-events: auto;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .verticalLine {
     border-left: var(--line-thickness) solid black; /* Adjust the thickness and color as needed */
-    height: 100%; /* Make the vertical line stretch to the full height of the container */ /* Adjust the spacing between elements and vertical lines */
+    height: 70%; /* Make the vertical line stretch to the full height of the container */ /* Adjust the spacing between elements and vertical lines */
 }
 
 .bottomLine {
     display: flex;
-border-top: var(--line-thickness) solid black; /* Adjust the thickness and color of the bottom line as needed */
-width: 94%; /* Make the bottom line span the full width of the container minus the margin */
-margin-left: 5%;
-margin-top: -4vh; /* Adjust the spacing between the elements and the bottom line */
-height: 10%;
-align-self: flex-end;
+    border-top: var(--line-thickness) solid black; /* Adjust the thickness and color of the bottom line as needed */
+    width: 94%; /* Make the bottom line span the full width of the container minus the margin */
+    margin-left: 5%;
+    margin-top: -4vh; /* Adjust the spacing between the elements and the bottom line */
+    height: 10%;
+    align-self: flex-end;
 }
 
 .element{
@@ -43,8 +44,45 @@ align-self: flex-end;
   justify-content: center;
   text-align: center;
   height: 100%;
-  width: 100%;
-  
+  width: 100%; 
+}
+
+.elementSearch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 6vh;
+    width: 80%; 
+    border-radius: 15px;
+    background-color: var(--menu-color);
+  }
+
+.element:hover{
+    color: var(--menu-hover);
+}
+
+.boxContainer {
+    display: flex;
+    font-size: var(--font-size);
+    font-weight: bold;
+    margin-top: 5vh;
+    gap: 5%;
+    width: 60%;
+    margin-left: 40%;
+}
+
+
+
+.textCategory{
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    width: 20%;
+}
+
+.underlinedElement {
+    text-decoration: underline; 
 }
 
 .elementInput{
@@ -64,32 +102,34 @@ align-self: flex-end;
     font-weight: bold;
 }
 
-.resultContainer{
-    margin-top: 10vh;
-    display: flex;
-    flex-direction: column;
+.resultBox{
+    margin-top: 5vh;
 }
 
 .result{
-    margin-top: 20vh;
-    margin-right: 2vw;
-    margin-left: 2vw;
-    height: 35vh;
+    padding: 2rem;
+    height: fit-content;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
     font-size: var(--font-size);
+    color: black;
+    border-radius: 15px;
+    background-color: var(--menu-color);
 }
 
 .resultValues{
     display: flex;
     flex-direction: row;
-    width: 94%; /* Make the bottom line span the full width of the container minus the margin */
-    margin-left: 5%;
+    width: 100%; /* Make the bottom line span the full width of the container minus the margin */
     text-align: end;
 }
 
 .resultImage{
-    max-height: 30vh;
-    max-width: 40vw;
+    max-height: 50vh;
+    max-width: 50vw;
     border: none;
+    border-radius: 15px;
 }
 
 
@@ -104,10 +144,73 @@ align-self: flex-end;
     margin-left: 5vw;
 }
 
+.resultContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
 .other{
     width: 94%;
     margin-left: 5%;
     font-size: var(--font-size);
     font-weight: bold;
 }
+
+.dropdownContainer{
+    position: relative; 
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    font-size: var(--font-size);
+    font-weight: bold;
+    pointer-events: auto;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdownMenu{
+    border-radius: 15px;
+    background-color: var(--menu-color);
+}
+
+.dropdown{
+    width: 100%;
+    height: 10%;
+}
+
+.elementBox{
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 8vh;
+    width: 100%;
+    width: inherit;  
+}
+
+.elementBoxText{
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
   
+
+.dropdown>.dropdownMenu,
+.dropdown.open>.dropdownMenu {
+    display: block !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease 0.2s;
+}
+.dropdown:hover>.dropdownMenu,
+.dropdown.open:hover>.dropdownMenu { 
+    opacity: 1;
+    visibility: visible; 
+}

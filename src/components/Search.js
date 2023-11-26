@@ -1,9 +1,9 @@
 import classes from "../style/search.module.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { CiSearch } from "react-icons/ci";
 
 function Search() {
-  const n= 10;
   const url = "https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=";
   
   const urlSpecific = "https://collectionapi.metmuseum.org/public/collection/v1/objects/";
@@ -13,28 +13,40 @@ function Search() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [nothing, setNothing] = useState(false);
-  const [picture, setPicture] = useState(true);
+  const [type, setType] = useState("");
+  const [sort, setSort] = useState("");
   
   async function fetchInfo (){
     setLoading(true);
     setNothing(false);
-    const response = await axios.get(`${url}${search}`);
-      //const objectIDs = response.data.objectIDs;
+    setType("");
+    setSort("");
+    
+    const targetCount = 10;
 
-    if (response.data.objectIDs === null){
+    const objectIDsResponse = await axios.get(`${url}${search}`);
+
+    if (!objectIDsResponse.data.objectIDs || objectIDsResponse.data.objectIDs.length === 0) {
       setLoading(false);
       setNothing(true);
       setData([]);
       setSortedData([]);
       return;
     }
-    
-    const objectIDs = response.data.objectIDs.slice(0, n);
 
+  let objectIDs = objectIDsResponse.data.objectIDs;
+  let objectDataList = [];
 
-    const objectDataList = await Promise.all(objectIDs.map(async (id) => {
-      
-      const specificResponse = await axios.get(`${urlSpecific}${id}`);
+  while (objectDataList.length < targetCount && objectIDs.length > 0) {
+    const currentID = objectIDs.shift();
+
+    try {
+      const specificResponse = await axios.get(`${urlSpecific}${currentID}`);
+
+      if (!specificResponse.data) {
+        console.error(`Error: Response data is null or undefined for object with ID ${currentID}`);
+        continue; // Skip to the next iteration
+      }
 
       const {
         artistDisplayName,
@@ -46,11 +58,16 @@ function Search() {
         objectName,
         primaryImage,
         title,
+        classification
       } = specificResponse.data;
+
+      if (!primaryImage || primaryImage === "") {
+        continue
+      }
 
       const finalArtistDisplayName = artistDisplayName !== "" ? artistDisplayName : "Unknown";
 
-    return {
+      objectDataList.push({
         artistDisplayName: finalArtistDisplayName,
         artistGender,
         department,
@@ -60,14 +77,16 @@ function Search() {
         objectName,
         primaryImage,
         title,
-      };
-
-
-       
-      }));
+        classification,
+      });
+    } catch (error) {
+      console.error(`Error fetching specific object with ID ${currentID}:`, error);
+    }
+  }
 
 
       console.log(objectDataList);
+      console.log("with classification");
 
       setData(objectDataList);
       setSortedData(objectDataList.slice());
@@ -79,14 +98,13 @@ function Search() {
 
   const reset = () => {
     setSortedData(data.slice());
-    setPicture(true);
+    setType("");
   };
 
-  //TODO change this to only with picture
-  const sortByPicture = () => {
-    const imageOnly = sortedData.filter((d) => d.primaryImage !== "");
-    setSortedData(imageOnly);
-    setPicture(false);
+  const sortByType = (type) => {
+    const typeOnly = data.filter((d) => d.classification.includes(type));
+    setSortedData(typeOnly);
+    setType(type);
   };
 
   const sortByArtistName = () => {
@@ -98,6 +116,7 @@ function Search() {
       return 0;
     });
     setSortedData(sorted);
+    setSort("name");
   };
 
   const parseDate = (str) => {
@@ -112,6 +131,7 @@ function Search() {
       return dateA - dateB;
     });
     setSortedData(sorted);
+    setSort("date");
   };
 
   const handleSearchChange = (event) => {
@@ -134,57 +154,91 @@ function Search() {
     <div className={classes.search}>
 
       <div className={classes.buttonContainer} > 
-      <form className={classes.elementInput}  onSubmit={handleSearchForm}>
-        <input className={classes.elementInput} type="text" placeholder="Search..." id="search" value={search} onChange={handleSearchChange} />
-      </form> 
-        <div className={classes.verticalLine}  />
-        <div className={classes.element} onClick={handleSearch} style={{width: "50%"}}>Search</div>
-        <div className={classes.verticalLine}  />
-        {picture ? <div className={classes.element} onClick={sortByPicture}>Only Show With Picture</div> : <div className={classes.element} onClick={reset}>Show All</div>}
-        <div className={classes.verticalLine}  />
-        <div className={classes.element} onClick={sortByArtistName}>Sort by Artist Name</div>
-        <div className={classes.verticalLine}  />
-        <div className={classes.element} onClick={sortByDate}>Sort by Date</div>
         
-    
         
+       
+        <div className={classes.element} onClick={handleSearch}>Missing</div>
+
+        <form className={classes.elementSearch}  onSubmit={handleSearchForm}>
+          <input className={classes.elementInput} type="text" placeholder="Search..." id="search" value={search} onChange={handleSearchChange} />
+          <div onClick={handleSearch} style={{padding: "15px"}}><CiSearch size={40}/></div>
+          
+        </form> 
+
+        
+
+        <div className={classes.element}>
+          <div className={classes.dropdownContainer}>
+          <div className={classes.dropdown}>
+            <div className={classes.elementBoxText}> Categories</div>
+            <div className={classes.dropdownMenu}>
+              <div className={`${classes.elementBox} ${type === 'Painting' ? classes.underlinedElement : ''}`} onClick={() => sortByType("Painting")}>Paintings</div>
+              <div className={`${classes.elementBox} ${type === 'Sculpture' ? classes.underlinedElement : ''}`} onClick={() => sortByType("Sculpture")}>Sculptures</div>
+              <div className={`${classes.elementBox} ${type === '' ? classes.underlinedElement : ''}`} onClick={reset}>See All</div>
+            </div>
+          </div>
+          </div>
         </div>
-        <div className={classes.bottomLine} />
+
+
+        <div className={classes.element}>
+          <div className={classes.dropdownContainer}>
+          <div className={classes.dropdown}>
+            <div className={classes.elementBoxText}>Sort By</div>
+            <div className={classes.dropdownMenu}>
+            <div className={`${classes.elementBox} ${sort === 'name' ? classes.underlinedElement : ''}`} onClick={sortByArtistName}>Sort by Artist Name</div>
+            <div className={`${classes.elementBox} ${sort === 'date' ? classes.underlinedElement : ''}`} onClick={sortByDate}>Sort by Date</div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div className={classes.element} onClick={handleSearch}>Missing</div>
+
+      
+
+
+        </div>
+
+
         
-        <div className={classes.resultContainer} >        
+
+
+        
+
+        
+        <div className={classes.resultBox} >        
           {nothing && <div className={classes.other}>No results</div>}
 
-          {loading ? <div className={classes.other}>Waiting for response from the Met Museum API...</div>: <>{sortedData.map((d, index) => {
+          {loading ? <div className={classes.other}>Waiting for response from the Met Museum API...</div>: <div className={classes.resultContainer}>{sortedData.map((d, index) => {
             return (
-              <div>
               <div
-                key={index}
-      
-                className={classes.result}
-              >
+                    key={index}
+          
+                    className={classes.result}
+                  >
 
-              <div className={classes.resultValues}>
+                  <div className={classes.resultValues}>
 
-               
-              {d.primaryImage !== "" ? <img className={classes.resultImage} src={d.primaryImage} alt="Artwork" />: <div>No Artwork Available</div> } 
-              
-              
-              
-              <div className={classes.resultText}>
-                
-              {d.artistDisplayName !== "" ? <div>Artist: {d.artistDisplayName} </div>: <div>Artist: Unknown</div>} 
-              {d.medium !== "" ? <div>Medium: {d.medium} </div>: <></>} 
-              {d.objectDate !== "" ? <div>Date: {d.objectDate} </div>: <></>} 
-              {d.objectName !== "" ? <div>Art Format: {d.objectName} </div>: <></>} 
-              {d.title !== "" ? <div>Title: {d.title} </div>: <></>} 
-              </div>
-              </div>
+                  
+                  {d.primaryImage !== "" ? <img className={classes.resultImage} src={d.primaryImage} alt="Artwork" />: <div>No Artwork Available</div> } 
+                  
+                  
+                  
+                  <div className={classes.resultText}>
+                    
+                  {d.artistDisplayName !== "" ? <div>Artist: {d.artistDisplayName} </div>: <div>Artist: Unknown</div>} 
+                  {d.medium !== "" ? <div>Medium: {d.medium} </div>: <></>} 
+                  {d.objectDate !== "" ? <div>Date: {d.objectDate} </div>: <></>} 
+                  {d.objectName !== "" ? <div>Art Format: {d.objectName} </div>: <></>} 
+                  {d.title !== "" ? <div>Title: {d.title} </div>: <></>} 
+                  </div>
+                  </div>
 
-              </div>
-              <div className={classes.bottomLine} />
-              </div>
+                  </div>
+                 
             );
-          })}</>}
+          })}</div>}
         </div>
     </div>
   );

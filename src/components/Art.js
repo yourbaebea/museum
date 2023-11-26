@@ -81,9 +81,9 @@ function Art() {
         <div name="art" className={`${classes.textItem} ${classes.kiss}`}>SCULPTURE</div>
         <div name="art" className={`${classes.textItem} ${classes.vangogh}`}>PAITING</div>
         <div name="art" className={`${classes.textItem} ${classes.pearlearing}`}>COSTUMES</div>
-        <div name="art" className={`${classes.textItem} ${classes.clock}`}>PHOTOGRAPHY</div>
+        <div name="art" className={`${classes.textItem} ${classes.picasso}`}>PHOTOGRAPHY</div>
         <div name="art" className={`${classes.textItem} ${classes.venus}`}>ANTIQUES</div>
-        <div name="art" className={`${classes.textItem} ${classes.wave}`}>CONTEMPORARY</div>
+        <div name="art" className={`${classes.textItem} ${classes.star}`}>CONTEMPORARY</div>
       </div>
     </div>
   );
